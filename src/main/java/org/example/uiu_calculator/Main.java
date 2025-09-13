@@ -14,12 +14,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("installment.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 550);
         stage.setTitle("Installment calculator");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
-    static void changeScene(ActionEvent event,String fxml, String tital) throws IOException {
+    static void changeScene(ActionEvent event,String fxml, String title) throws IOException {
         Parent root = null;
     try {
         root= FXMLLoader.load(Main.class.getResource(fxml));
@@ -27,8 +28,8 @@ public class Main extends Application {
         e.printStackTrace();
     }
         Stage stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
-    stage.setScene(new Scene(root,700,500));
-    stage.setTitle(tital);
+    stage.setScene(new Scene(root,700,550));
+    stage.setTitle(title);
     stage.setResizable(false);
     stage.show();
 
